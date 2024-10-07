@@ -1,6 +1,6 @@
 # Contributing to U7E3-Backend
 
-Welcome to the turbo-robot! We’re glad you’re here to contribute to a growing collection of essential coding algorithms and famous code solutions. Whether you’re here for Hacktoberfest or to enhance this repository, we appreciate your efforts!
+Welcome to the U7E3-Backend! We’re glad you’re here to contribute to a growing collection of essential coding algorithms and famous code solutions. Whether you’re here for Hacktoberfest or to enhance this repository, we appreciate your efforts!
 
 Getting Started
 
