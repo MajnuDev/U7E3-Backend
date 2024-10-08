@@ -6,7 +6,7 @@ const {UserModel} = require('./models/user.model');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const cors = require('cors');
-
+const PORT = process.env.PORT || 8000;
 
 const {tweets_router} = require('./routes/tweets.router');
 const {authetication} = require('./middlewares/middleware')
@@ -63,7 +63,7 @@ app.post('/login',async(req,res)=>{
 })
 
 app.use("/tweets",authetication,tweets_router)
-app.listen(8080,async()=>{
+app.listen(PORT,async()=>{
     try{
         await connect;
         console.log('connected successfully.....')
@@ -71,6 +71,6 @@ app.listen(8080,async()=>{
         console.log(err);
         console.log("error while connectind")
     }
-    console.log('connected at 8080');
+     console.log(`connected at ${PORT}`);
 })
 
