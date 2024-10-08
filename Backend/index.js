@@ -13,6 +13,8 @@ const {authetication} = require('./middlewares/middleware')
 require('dotenv').config();
 const  app = express();
 
+const PORT = process.env.PORT || 8000 ;
+
 app.use(cors());
 app.use(express.json());
 
@@ -63,7 +65,7 @@ app.post('/login',async(req,res)=>{
 })
 
 app.use("/tweets",authetication,tweets_router)
-app.listen(8080,async()=>{
+app.listen(PORT,async()=>{
     try{
         await connect;
         console.log('connected successfully.....')
@@ -71,6 +73,6 @@ app.listen(8080,async()=>{
         console.log(err);
         console.log("error while connectind")
     }
-    console.log('connected at 8080');
+    console.log(`connected at ${PORT}`);
 })
 
