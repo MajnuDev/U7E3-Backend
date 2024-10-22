@@ -26,10 +26,8 @@ app.post('/signup',async(req,res)=>{
     const {name,email,password,gender,country} = req.body;
     const isuser = await UserModel.findOne({ email });
     console.log(isuser)
-    if(isuser){
-        res.send('user already exist')
-    }else{
-    bcrypt.hash(password,2,async function(err,hash){
+    if(!isuser){
+        bcrypt.hash(password,2,async function(err,hash){
             const new_user = new UserModel({
                 name,
                 email,
@@ -40,6 +38,8 @@ app.post('/signup',async(req,res)=>{
             await new_user.save();
             res.send('signup successful....')
     });
+    }else{
+         res.send('user already exist')
 }
 })
 
